@@ -1,0 +1,137 @@
+@import 'utils.scss';
+@import 'globals.scss';
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'animations.scss';
+
+/* modal */
+.modal{
+    /* styling */
+    font-family: $roboto;
+    position: fixed;
+    left:0;
+    top:0;
+    right: 0;
+    bottom: 0;
+
+    background-color:$transparent-grey;
+    
+    display:flex;
+    align-items: center;
+
+    justify-content: center;
+
+    /* animation */
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s;
+
+}
+.modal:target{
+    visibility: visible;
+    opacity: 1;
+}
+.modal__content {
+    width: 500px;
+    margin: 0 auto;
+    background-color: $white;
+    border: 1.5px solid $dark-blue;
+    border-radius: 10px;
+
+    transform: translateY(-100px);
+	transition: $opacity-transition;
+		
+	z-index: 1;
+}
+.modal__alignment{
+    padding: 10px 24px;
+}
+.modal__header{
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.modal__title{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+.modal__exit-icon{
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    background-color: $light-grey;
+    padding: 5px;
+    border-radius: 100px;
+
+    .exit-icon{
+        color: $black;
+    }
+}
+.modal__exit-icon:hover{
+    filter: brightness(70%);
+}
+.modal__body{
+    padding: 0px 0;
+}
+
+/* modal country  */
+.modal__footer{
+    background-color: $light-grey;
+    padding: 20px 24px;
+    border-radius: 0px 0px 10px 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.modal__btn{
+    display: inline-flex;
+    
+    color: $black;
+    
+    text-decoration: none;
+
+    padding: 10px 15px;
+    
+    border-radius: 100px;
+    
+}
+.modal__btn--clear{
+
+    display: flex;
+    align-items: center;
+
+    .btn--clear__icon{
+        margin-right: 5px;
+    }
+}
+
+.modal__btn--clear:hover{
+    background-color: $moderate-grey;
+    color: $black;
+    filter: brightness(103%);
+}
+
+.modal__btn1{
+    margin-right: 6px;
+    background-color: $light-grey;
+    color: $dark-blue;
+}
+.modal__btn1:hover{
+    text-decoration: underline;
+}
+.modal__btn2{
+
+    color: $white;
+    background-color: $dark-blue;
+    box-shadow: 0.5px 0.5px 4px $dark-blue;
+}
+.modal__btn2:hover{
+    filter: brightness(78%);
+}
+
+
+

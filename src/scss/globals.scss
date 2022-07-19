@@ -1,0 +1,13 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    
+}
+body{
+    margin: 0 auto;
+}
+img{
+    max-width: 100%;
+}
+h1, h2, h3{
+    margin-top: 0;
+}

@@ -1,0 +1,158 @@
+@import 'utils.scss';
+@import 'globals.scss';
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'animations.scss';
+@import 'modal.scss';
+@import 'form.scss';
+
+.display{
+    background-image: url("../assets/images/spots_background_light_blur_68629_1920x1080.jpg");
+    color: $white;
+    min-height: 100vh;
+    font-family: $roboto;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.primary__info{
+    width: 30%;
+
+}
+.primary__header{
+    padding: 40px 0px 0px 0px;   
+    text-align: center;
+    .header__h1{
+        padding: 20px 0 0 0 ;
+        font-size: 30px;
+    }
+}
+
+.primary__content{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+    align-items: center;
+    justify-content: flex-start;
+    
+    align-content: center;
+    
+}
+.primary__pressure{
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: center;
+}
+.primary__humidity{
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: center;
+}
+
+.primary__windspeed{
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: center;
+}
+
+.secondary__info{
+    padding-top: 40px;
+    text-align: center;
+    width: 30%;
+}
+.secondary__header{
+    font-size: 30px;
+    padding: 0 0 4px 0;
+    text-shadow: 1px 1px 80px #c67683;
+}
+.secondary__text{
+    
+    padding: 0px 0 25px 0;
+}
+.secondary__date{
+    margin: 0;
+    font-size: 13px;
+    padding-right: 10px;
+}
+.secondary__flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.location__img{
+    padding-top: 25px;
+}
+.secondary__img:hover{
+    cursor: pointer;
+    filter: brightness(60%);
+}
+
+.tertiary__info{
+    
+    padding-top: 40px;
+    text-align: center;
+    width: 30%;
+
+    .img{
+        display: flex;
+        justify-content: center;
+    }
+    .tertiary__header{
+        font-size: 35px;
+    }
+}
+.tertiary__img{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.min-temp-insert{
+    font-size: 20px;
+}
+
+.taskbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 35px;
+}
+.taskbar__temperature{
+    font-size: 40px;
+}
+.taskbar__info{
+    
+    padding: 0px 20px 0 0 ;
+}
+
+.taskbar__date{
+    text-align: center;
+}
+
+/* button form */
+.btn__change{
+    display: inline-flex;
+    padding: 10px 15px;
+    text-decoration: none;
+    background-color: $white;
+    color: $dark-blue;
+    border-radius: 100px;
+    box-shadow: 3px 4px 75px #c67683;
+    cursor: pointer;
+}
+
+.btn__change:hover{
+    filter: brightness(86%);
+}
+
+
+

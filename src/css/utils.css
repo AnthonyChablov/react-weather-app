@@ -1,0 +1,52 @@
+/* form colours  */
+.container {
+  margin: 0 auto;
+  width: 85%;
+  max-width: 1100px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.center {
+  text-align: center;
+}
+
+/* divider component -- white line 
+seperator between content*/
+.divider {
+  padding-top: 150px;
+}
+
+.divider__border {
+  padding-bottom: 175px;
+  border-left: 1.5px solid #fff;
+}
+
+/* Divider 2 */
+.divider-2 {
+  padding-top: 20px;
+}
+
+.divider__border-2 {
+  padding-bottom: 175px;
+  border-left: 1.5px solid #fff;
+}
+
+/* divider component -- bottom */
+.divider-bot {
+  padding: 0 25%;
+  text-align: center;
+}
+
+.divider-bot__border {
+  padding-right: 15%;
+  border-top: 1.5px solid #fff;
+}
+
+/* icon styling */
+.icons {
+  margin-right: 3.5%;
+}/*# sourceMappingURL=utils.css.map */
