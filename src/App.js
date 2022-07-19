@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
-import Hero from './components/Hero';
+import Hero from  './components/2-app/Hero';
 import Modal from './components/modal/Modal';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   /* Hooks */
@@ -33,14 +34,18 @@ function App() {
   //weather.main.humidity
   //weather.wind.speed 
   return (
-    <main >
-      <Hero 
-        pressure={1} 
-        humidity={2}
-        speed={3}  
-      />
-      <Modal />
-    </main>
+    <Router>
+      <main >
+        <Switch>
+          <Hero 
+            pressure={1} 
+            humidity={2}
+            speed={3}  
+          />
+          <Modal />
+        </Switch>
+      </main>
+    </Router>
   );
 }
 
