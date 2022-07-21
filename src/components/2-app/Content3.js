@@ -1,14 +1,14 @@
 import DividerBot from "../utils/DividerBot"
 
-const Content3 = () => {
+const Content3 = ({minTemp, maxTemp,time}) => {
   return (
     
     <section className="tertiary__info">
-        <h1 className="tertiary__header">17:33 PM</h1>
+        <h1 className="tertiary__header">{time}</h1>
         <p>Min. Temp.</p>
     
         <div className="tertiary__img tertiary__border">
-            <p className="min-temp-insert ">45°C</p>
+            <p className="min-temp-insert ">{Math.round(minTemp-273)}°C</p>
             <div className="min-temp-img">
                 <img src={require("../../assets/images/thermometer/Temperature_32px.png")} alt="thermometer"/>
             </div> 
@@ -18,7 +18,7 @@ const Content3 = () => {
         
         <p>Max. Temp</p>
         <div className="tertiary__img ">
-            <p className="min-temp-insert ">45°C</p>
+            <p className="min-temp-insert ">{Math.round(maxTemp-273)}°C</p>
             <div className="min-temp-img">
                 <img src={require("../../assets/images/thermometer/Temperature_32px.png")} alt="thermometer"/>
             </div> 

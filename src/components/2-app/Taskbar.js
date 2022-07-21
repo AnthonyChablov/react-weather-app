@@ -1,11 +1,11 @@
 import Divider2 from "../utils/Divider2"
 import TaskbarMain from "./TaskbarMain"
 import TaskbarCalendar from "./TaskbarCalendar"
-const Taskbar = () => {
+const Taskbar = ({temp,currentDayMonthYear}) => {
   return (
     <footer className="taskbar">    
 
-      <TaskbarMain />
+      <TaskbarMain temp={temp} time={currentDayMonthYear}/>
       <Divider2/>
 
       <TaskbarCalendar date='MON' temp='45°C'/>

@@ -5,8 +5,18 @@ import Content3 from "./Content3"
 import Divider from "../utils/Divider"
 import Taskbar from "./Taskbar"
 
-
-const Hero = ({pressure, humidity, speed}) => {
+const Hero = ({
+  // content1 props
+  pressure, humidity, speed,
+  //content2 props
+  city,country,weather,imageId,
+  date,time,
+  //content3 props
+  minTemp,maxTemp,
+  //taskbar
+  temp, currentDayMonthYear,
+  
+}) => {
   return (
     <section className="display">
         <div className="container">
@@ -17,16 +27,31 @@ const Hero = ({pressure, humidity, speed}) => {
               humidity={humidity}
               speed={speed}
             />
-            <Divider/>
-            <Content2 />
-            <Divider/>
-            <Content3/>
             
-            
+            <Divider/>
+
+            <Content2 
+              city = {city}
+              country={country}
+              weather = {weather}
+              imageId={imageId}
+              date={date}
+            />
+
+            <Divider/>
+
+            <Content3
+              minTemp={minTemp}
+              maxTemp={maxTemp}
+              time = {time}
+            />
           </div>
           <div>
-              <Taskbar/>
-              
+              <Taskbar 
+                temp={temp} 
+                currentDayMonthYear={currentDayMonthYear}
+              />
+          
           </div>
         </div>
     </section>
