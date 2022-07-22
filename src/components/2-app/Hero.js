@@ -14,7 +14,7 @@ const Hero = ({
   //content3 props
   minTemp,maxTemp,
   //taskbar
-  temp, currentDayMonthYear,daysOfWeek
+  temp, currentDayMonthYear,daysOfWeek, sevenDayWeather
   
 }) => {
   return (
@@ -51,6 +51,7 @@ const Hero = ({
                 temp={temp} 
                 currentDayMonthYear={currentDayMonthYear}
                 daysOfWeek={daysOfWeek}
+                sevenDayWeather={sevenDayWeather}
               />
           
           </div>

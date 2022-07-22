@@ -1,21 +1,34 @@
 import Divider2 from "../utils/Divider2"
 import TaskbarMain from "./TaskbarMain"
 import TaskbarCalendar from "./TaskbarCalendar"
-const Taskbar = ({temp,currentDayMonthYear , daysOfWeek}) => {
+const Taskbar = ({temp,currentDayMonthYear , daysOfWeek, sevenDayWeather}) => {
   return (
     <footer className="taskbar">    
 
       <TaskbarMain temp={temp} time={currentDayMonthYear}/>
       <Divider2/>
 
-      <TaskbarCalendar daysOfWeek={daysOfWeek[0]} temp='45°C'/>
-      <TaskbarCalendar daysOfWeek={daysOfWeek[1]} temp='45°C'/>
-      <TaskbarCalendar daysOfWeek={daysOfWeek[2]} temp='45°C'/>
-      <TaskbarCalendar daysOfWeek={daysOfWeek[3]} temp='45°C'/>
-      <TaskbarCalendar daysOfWeek={daysOfWeek[4]} temp='45°C'/>
-      <TaskbarCalendar daysOfWeek={daysOfWeek[5]} temp='45°C'/>
-      <TaskbarCalendar daysOfWeek={daysOfWeek[6]} temp='45°C'/>
+        <TaskbarCalendar daysOfWeek={daysOfWeek[0]} temp='45°C' sevenDayWeather={(
+        Math.round((sevenDayWeather[1].temp.max +sevenDayWeather[1].temp.max)/2)-273)}/>
+
+        <TaskbarCalendar daysOfWeek={daysOfWeek[1]} temp='45°C' sevenDayWeather={(
+        Math.round((sevenDayWeather[2].temp.max +sevenDayWeather[2].temp.max)/2)-273)}/>
+
+        <TaskbarCalendar daysOfWeek={daysOfWeek[2]} temp='45°C' sevenDayWeather={(
+        Math.round((sevenDayWeather[3].temp.max +sevenDayWeather[3].temp.max)/2)-273)}/>
+
+        <TaskbarCalendar daysOfWeek={daysOfWeek[3]} temp='45°C' sevenDayWeather={(
+        Math.round((sevenDayWeather[4].temp.max +sevenDayWeather[4].temp.max)/2)-273)}/>
+
+        <TaskbarCalendar daysOfWeek={daysOfWeek[4]} temp='45°C' sevenDayWeather={(
+        Math.round((sevenDayWeather[5].temp.max +sevenDayWeather[5].temp.max)/2)-273)}/>
+
+        <TaskbarCalendar daysOfWeek={daysOfWeek[5]} temp='45°C' sevenDayWeather={(
+        Math.round((sevenDayWeather[6].temp.max +sevenDayWeather[6].temp.max)/2)-273)}/>
       
+        <TaskbarCalendar daysOfWeek={daysOfWeek[6]} temp='45°C' sevenDayWeather={(
+        Math.round((sevenDayWeather[7].temp.max +sevenDayWeather[7].temp.max)/2)-273)}/>
+
     </footer>
   )
 }

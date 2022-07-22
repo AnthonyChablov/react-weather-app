@@ -22,20 +22,20 @@ function App() {
   // Fetch Request #2
   const [sevenDayWeather, setSevenDayWeather]=useState(SevenDayWeatherData);
   const [loading, setLoading] = useState(false);
-
   // Change time dynamically
   const [time, setTime] = useState(`Loading...`);
+  // clear form inputs of modal
+  const [val,setVal] = useState();
+  // Modal Enter City Name
+  const [city, setCity]=useState('Toronto');
+  // setting the order of days accoring to day of the week
+  const [orderDays, setOrderDays] = useState(['MON', 'TUE','WED','THU','FRI','SAT','SUN']);
+
   useEffect(()=>{
     setInterval(()=>{
       setTime((getTime()));
     }, 1000);
   });
-
-  // clear form inputs of modal
-  const [val,setVal] = useState();
-
-  // Modal Enter City Name
-  const [city, setCity]=useState('Tokyo');
 
   useEffect(()=>{
     getWeather();
@@ -44,6 +44,10 @@ function App() {
   useEffect(()=>{
     getSevenDayWeather();
   },[]);
+
+  useEffect(()=>{
+    setOrderDays(reOrderDays());
+  }, []);
 
   /* Functions */
   // 1 Day Weather
@@ -112,17 +116,12 @@ function App() {
   }
   let currentDayMonthYear = getMonthDayYear();
 
-  // setting the order of days accoring to day of the week
-  const [orderDays, setOrderDays] = useState(['MON', 'TUE','WED','THU','FRI','SAT','SUN']);
   let reOrderDays = ()=>{
     let numberDay = new Date();
-    let arr1 = orderDays.filter((day, i)=> i >= numberDay.getDay()-1);
+    let arr1 = orderDays.filter((day, i)=> i >= numberDay.getDay());
     let arr2 = orderDays.filter((day, i)=> i < numberDay.getDay());
     return arr1.concat(arr2);
   }
-  useEffect(()=>{
-    setOrderDays(reOrderDays());
-  }, []);
 
   // Rendering
   if (loading){
@@ -158,6 +157,10 @@ function App() {
                 temp = {weather.main.temp}
                 currentDayMonthYear = {currentDayMonthYear}
                 daysOfWeek = {orderDays}
+
+                sevenDayWeather = {sevenDayWeather.daily}
+              
+              
               />
               <Modal value={val} changeCity={()=>setCity()}/>
             </main>
