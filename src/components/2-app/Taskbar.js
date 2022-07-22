@@ -1,20 +1,20 @@
 import Divider2 from "../utils/Divider2"
 import TaskbarMain from "./TaskbarMain"
 import TaskbarCalendar from "./TaskbarCalendar"
-const Taskbar = ({temp,currentDayMonthYear}) => {
+const Taskbar = ({temp,currentDayMonthYear , daysOfWeek}) => {
   return (
     <footer className="taskbar">    
 
       <TaskbarMain temp={temp} time={currentDayMonthYear}/>
       <Divider2/>
 
-      <TaskbarCalendar date='MON' temp='45°C'/>
-      <TaskbarCalendar date='TUE' temp='45°C'/>
-      <TaskbarCalendar date='WED' temp='45°C'/>
-      <TaskbarCalendar date='THURS' temp='45°C'/>
-      <TaskbarCalendar date='FRI' temp='45°C'/>
-      <TaskbarCalendar date='SAT' temp='45°C'/>
-      <TaskbarCalendar date='SUN' temp='45°C'/>
+      <TaskbarCalendar daysOfWeek={daysOfWeek[0]} temp='45°C'/>
+      <TaskbarCalendar daysOfWeek={daysOfWeek[1]} temp='45°C'/>
+      <TaskbarCalendar daysOfWeek={daysOfWeek[2]} temp='45°C'/>
+      <TaskbarCalendar daysOfWeek={daysOfWeek[3]} temp='45°C'/>
+      <TaskbarCalendar daysOfWeek={daysOfWeek[4]} temp='45°C'/>
+      <TaskbarCalendar daysOfWeek={daysOfWeek[5]} temp='45°C'/>
+      <TaskbarCalendar daysOfWeek={daysOfWeek[6]} temp='45°C'/>
       
     </footer>
   )

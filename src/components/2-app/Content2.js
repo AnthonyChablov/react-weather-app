@@ -6,7 +6,7 @@ const Content2 = ({city, country,weather, imageId, date}) => {
     <section className="secondary__info">
         <h1 className="secondary__header">{city}, {country}</h1>
         
-        <Button action='Change Location' />
+        <Button className="secondary__btn" action='Change Location' />
         
         <div className="secondary__image">
             <Image imageId={imageId}/>
