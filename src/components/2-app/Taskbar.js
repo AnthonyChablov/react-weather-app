@@ -1,33 +1,54 @@
 import Divider2 from "../utils/Divider2"
 import TaskbarMain from "./TaskbarMain"
 import TaskbarCalendar from "./TaskbarCalendar"
-const Taskbar = ({temp,currentDayMonthYear , daysOfWeek, sevenDayWeather}) => {
+const Taskbar = ({temp,currentDayMonthYear , daysOfWeek, sevenDayWeather, sevenDayImgId}) => {
   return (
     <footer className="taskbar">    
 
       <TaskbarMain temp={temp} time={currentDayMonthYear}/>
       <Divider2/>
 
-        <TaskbarCalendar daysOfWeek={daysOfWeek[0]} temp='45°C' sevenDayWeather={(
-        Math.round((sevenDayWeather[1].temp.max +sevenDayWeather[1].temp.max)/2)-273)}/>
+        <TaskbarCalendar 
+            daysOfWeek={daysOfWeek[0]} 
+            temp='45°C' 
+            sevenDayWeather={(Math.round((sevenDayWeather[1].temp.min +sevenDayWeather[1].temp.max)/2)-273)}
+            sevenDayImgId ={sevenDayImgId[1]}
+        />
 
-        <TaskbarCalendar daysOfWeek={daysOfWeek[1]} temp='45°C' sevenDayWeather={(
-        Math.round((sevenDayWeather[2].temp.max +sevenDayWeather[2].temp.max)/2)-273)}/>
+        <TaskbarCalendar 
+            daysOfWeek={daysOfWeek[1]} 
+            temp='45°C' 
+            sevenDayWeather={(Math.round((sevenDayWeather[2].temp.min +sevenDayWeather[2].temp.max)/2)-273)}
+            sevenDayImgId={sevenDayImgId[2]}
+        />
 
         <TaskbarCalendar daysOfWeek={daysOfWeek[2]} temp='45°C' sevenDayWeather={(
-        Math.round((sevenDayWeather[3].temp.max +sevenDayWeather[3].temp.max)/2)-273)}/>
+        Math.round((sevenDayWeather[3].temp.min +sevenDayWeather[3].temp.max)/2)-273)}
+
+        sevenDayImgId={sevenDayImgId[3]}
+        />
 
         <TaskbarCalendar daysOfWeek={daysOfWeek[3]} temp='45°C' sevenDayWeather={(
-        Math.round((sevenDayWeather[4].temp.max +sevenDayWeather[4].temp.max)/2)-273)}/>
+        Math.round((sevenDayWeather[4].temp.min +sevenDayWeather[4].temp.max)/2)-273)}
+        sevenDayImgId={sevenDayImgId[4]}
+        />
 
         <TaskbarCalendar daysOfWeek={daysOfWeek[4]} temp='45°C' sevenDayWeather={(
-        Math.round((sevenDayWeather[5].temp.max +sevenDayWeather[5].temp.max)/2)-273)}/>
+        Math.round((sevenDayWeather[5].temp.min +sevenDayWeather[5].temp.max)/2)-273)}
+        sevenDayImgId={sevenDayImgId[5]}
+        />
 
         <TaskbarCalendar daysOfWeek={daysOfWeek[5]} temp='45°C' sevenDayWeather={(
-        Math.round((sevenDayWeather[6].temp.max +sevenDayWeather[6].temp.max)/2)-273)}/>
+        Math.round((sevenDayWeather[6].temp.min +sevenDayWeather[6].temp.max)/2)-273)}
+        sevenDayImgId={sevenDayImgId[6]}
+        />
       
         <TaskbarCalendar daysOfWeek={daysOfWeek[6]} temp='45°C' sevenDayWeather={(
-        Math.round((sevenDayWeather[7].temp.max +sevenDayWeather[7].temp.max)/2)-273)}/>
+        Math.round((sevenDayWeather[7].temp.min +sevenDayWeather[7].temp.max)/2)-273)}
+        sevenDayImgId={sevenDayImgId[7]}
+        />
+
+
 
     </footer>
   )

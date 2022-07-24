@@ -174,20 +174,36 @@ h1, h2, h3 {
   filter: brightness(103%);
 }
 
-.modal__btn1 {
+.modal__btn--cancel {
   margin-right: 6px;
   background-color: #EEEEEE;
   color: #474090;
 }
 
-.modal__btn1:hover {
+.modal__btn--cancel:hover {
   text-decoration: underline;
+}
+
+.modal__btn--submit {
+  color: #fff;
+  background-color: #474090;
+  box-shadow: 0.5px 0.5px 4px #474090;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+}
+
+.modal__btn--submit:hover {
+  filter: brightness(78%);
 }
 
 .modal__btn2 {
   color: #fff;
   background-color: #474090;
   box-shadow: 0.5px 0.5px 4px #474090;
+  border: none;
 }
 
 .modal__btn2:hover {

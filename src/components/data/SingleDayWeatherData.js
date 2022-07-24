@@ -6,7 +6,7 @@ let SingleDayWeatherData = {
     weather: [
       {
         id: 802,
-        main: "Clouds",
+        main: "Rain",
         description: 'clear sky',
         icon: "03d"
       }

@@ -115,19 +115,41 @@
     filter: brightness(103%);
 }
 
-.modal__btn1{
+.modal__btn--cancel{
     margin-right: 6px;
     background-color: $light-grey;
     color: $dark-blue;
 }
-.modal__btn1:hover{
+.modal__btn--cancel:hover{
     text-decoration: underline;
 }
+
+.modal__btn--submit{
+    color: $white;
+    background-color: $dark-blue;
+    box-shadow: 0.5px 0.5px 4px $dark-blue;
+    border: none;
+
+
+    
+    padding: 10px 15px;
+    font-size: 16px;
+    font-family: $roboto;
+    cursor: pointer;
+}
+.modal__btn--submit:hover{
+    filter: brightness(78%);
+    
+}
+
+
+
 .modal__btn2{
 
     color: $white;
     background-color: $dark-blue;
     box-shadow: 0.5px 0.5px 4px $dark-blue;
+    border: none;
 }
 .modal__btn2:hover{
     filter: brightness(78%);

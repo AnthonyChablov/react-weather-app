@@ -8,12 +8,16 @@ import {SevenDayWeatherData} from './components/data/SevenDayWeatherData';
 import {SingleDayWeatherData} from './components/data/SingleDayWeatherData';
 
 // importing large images for dynamic insert
-import sunImg from './assets/images/weatherstatus/lg/Sun_100px.png';
+import sunImg from   './assets/images/weatherstatus/lg/Sun_100px.png';
 import cloudImg from "./assets/images/weatherstatus/lg/Cloud_100px.png";
-import rainImg from "./assets/images/weatherstatus/lg/Rain_100px.png";
-import snowImg from "./assets/images/weatherstatus/lg/Snow_100px.png";
+import rainImg from  "./assets/images/weatherstatus/lg/Rain_100px.png";
+import snowImg from  "./assets/images/weatherstatus/lg/Snow_100px.png";
 
 // importing small images for dynamic insert
+import sunImgSm from   './assets/images/weatherstatus/sm/Sun_64px_3.png';
+import cloudImgSm from "./assets/images/weatherstatus/sm/Cloud_64px.png";
+import rainImgSm from  "./assets/images/weatherstatus/sm/Rain_64px_1.png";
+import snowImgSm from  "./assets/images/weatherstatus/sm/Snow_64px.png";
 
 function App() {
   // HOOKS
@@ -30,6 +34,7 @@ function App() {
   const [city, setCity]=useState('Toronto');
   // setting the order of days accoring to day of the week
   const [orderDays, setOrderDays] = useState(['MON', 'TUE','WED','THU','FRI','SAT','SUN']);
+  // change form input
 
   useEffect(()=>{
     setInterval(()=>{
@@ -48,7 +53,6 @@ function App() {
   useEffect(()=>{
     setOrderDays(reOrderDays());
   }, []);
-
   /* Functions */
   // 1 Day Weather
   const fetchWeather = async()=>{
@@ -81,7 +85,6 @@ function App() {
     setSevenDayWeather(weatherFromServer);
     setLoading(false);
   }
-  
   const getTime =  () => {
     let time = new Date();
     let newTime = time.toLocaleTimeString();
@@ -101,12 +104,32 @@ function App() {
     'rain':rainImg,
     'snow':snowImg,
     'mist':rainImg,
+
+    'Clouds': cloudImg,
+    'Rain':rainImg,
+    'Snow':snowImg,
+    'Clear':sunImg,
+  }
+  let weatherOutputSm={
+    'Clouds': cloudImgSm,
+    'Rain':rainImgSm,
+    'Snow':snowImgSm,
+    'Clear':sunImgSm,
   }
 
   const getImageWeather = () => {
-    return weatherOutput[weather.weather[0].description]
+    return weatherOutput[weather.weather[0].main]
   }
   let imageId = getImageWeather();
+
+  const getSevenDayImageWeather=()=>{
+    let weeklyWeather = [];
+    for(let i =0 ; i <= 7; i ++){
+      weeklyWeather.push(weatherOutputSm[SevenDayWeatherData.daily[i].weather[0].main])
+    }
+    return weeklyWeather;
+  }
+  let sevenDayImgId = getSevenDayImageWeather();
 
   // Get current day month year
   let getMonthDayYear = ()=>{
@@ -121,6 +144,12 @@ function App() {
     let arr1 = orderDays.filter((day, i)=> i >= numberDay.getDay());
     let arr2 = orderDays.filter((day, i)=> i < numberDay.getDay());
     return arr1.concat(arr2);
+  }
+
+  //form
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    console.log(`Form Submitted ${city}`);
   }
 
   // Rendering
@@ -157,12 +186,17 @@ function App() {
                 temp = {weather.main.temp}
                 currentDayMonthYear = {currentDayMonthYear}
                 daysOfWeek = {orderDays}
-
+                
                 sevenDayWeather = {sevenDayWeather.daily}
-              
-              
+                sevenDayImgId = {sevenDayImgId}
               />
-              <Modal value={val} changeCity={()=>setCity()}/>
+              
+              {/* Modal */}
+              <Modal 
+                value={val} 
+                handleSubmit = {handleSubmit}
+                changeCity={setCity}
+              />
             </main>
           ):( // Loading Page
             <main>Loading...</main>
