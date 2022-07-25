@@ -28,27 +28,29 @@ function App() {
   const [loading, setLoading] = useState(false);
   // Change time dynamically
   const [time, setTime] = useState(`Loading...`);
-  // clear form inputs of modal
-  const [val,setVal] = useState();
   // Modal Enter City Name
-  const [city, setCity]=useState('Toronto');
+  const [city, setCity]= useState('Toronto');
   // setting the order of days accoring to day of the week
   const [orderDays, setOrderDays] = useState(['MON', 'TUE','WED','THU','FRI','SAT','SUN']);
-  // change form input
+  // form input value
+  const [formInputCity , setFormInputCity] = useState('');
+  const [formInputCountry, setFormInputCountry] = useState('');
 
-  useEffect(()=>{
+  useEffect(()=>{ 
     setInterval(()=>{
       setTime((getTime()));
     }, 1000);
   });
 
   useEffect(()=>{
+    console.log('City changed');
     getWeather();
-  }, []);
+  },[city])
+  
 
   useEffect(()=>{
     getSevenDayWeather();
-  },[]);
+  },[city]);
 
   useEffect(()=>{
     setOrderDays(reOrderDays());
@@ -61,6 +63,7 @@ function App() {
       throw new Error('Error! Something went wrong!');
     }
     const data = await res.json();
+    console.log(data);
     return data;
   }
   const getWeather = async ()=>{
@@ -81,8 +84,8 @@ function App() {
   }
   const getSevenDayWeather = async ()=>{
     setLoading(true);
-    const weatherFromServer = await fetchSevenDayWeather();
-    setSevenDayWeather(weatherFromServer);
+    const sevenWeatherFromServer = await fetchSevenDayWeather();
+    setSevenDayWeather(sevenWeatherFromServer);
     setLoading(false);
   }
   const getTime =  () => {
@@ -93,6 +96,7 @@ function App() {
 
   // Dynamically Change Weather Image According To Weather
   let weatherOutput={
+    /* 
     'clear sky': sunImg,
     'few clouds':cloudImg,
     "scattered clouds":cloudImg,
@@ -104,28 +108,34 @@ function App() {
     'rain':rainImg,
     'snow':snowImg,
     'mist':rainImg,
-
+ */
+    
     'Clouds': cloudImg,
     'Rain':rainImg,
     'Snow':snowImg,
     'Clear':sunImg,
+    'Thunderstorm':rainImg,
+    'Mist':rainImg,
   }
   let weatherOutputSm={
     'Clouds': cloudImgSm,
     'Rain':rainImgSm,
     'Snow':snowImgSm,
     'Clear':sunImgSm,
+    'Thunderstorm':rainImgSm,
+    'Mist':rainImgSm,
   }
 
   const getImageWeather = () => {
-    return weatherOutput[weather.weather[0].main]
+    //sevenDayWeather.daily[0].weather[0].main
+    return weatherOutput[weather.weather[0].main];
   }
   let imageId = getImageWeather();
 
   const getSevenDayImageWeather=()=>{
     let weeklyWeather = [];
     for(let i =0 ; i <= 7; i ++){
-      weeklyWeather.push(weatherOutputSm[SevenDayWeatherData.daily[i].weather[0].main])
+      weeklyWeather.push(weatherOutputSm[sevenDayWeather.daily[i].weather[0].main])
     }
     return weeklyWeather;
   }
@@ -146,10 +156,21 @@ function App() {
     return arr1.concat(arr2);
   }
 
-  //form
-  const handleSubmit = (e)=>{
+  //form state changes and submit to make new fetch request
+  const onChangeHandler = (e)=>{
+    setFormInputCity(e.target.value);
+  }
+  const onChangeHandlerCountry=(e)=>{
+    setFormInputCountry(e.target.value);
+  }
+  const onSubmitHandler = (e)=>{
     e.preventDefault();
+    setCity(formInputCity);
     console.log(`Form Submitted ${city}`);
+  }
+  const onClearForm = (e) =>{
+    setFormInputCity('');
+    setFormInputCountry('');
   }
 
   // Rendering
@@ -193,9 +214,16 @@ function App() {
               
               {/* Modal */}
               <Modal 
-                value={val} 
-                handleSubmit = {handleSubmit}
-                changeCity={setCity}
+                onChangeCity = {onChangeHandler}
+                onChangeCountry = {onChangeHandlerCountry}
+                onSubmit = {onSubmitHandler}
+                
+                //form clear
+                formInputCity={formInputCity}
+                formInputCountry={formInputCountry}
+                setFormInputCountry= {setFormInputCountry}
+                setFormInputCity={setFormInputCity}
+                clearForm ={onClearForm}
               />
             </main>
           ):( // Loading Page

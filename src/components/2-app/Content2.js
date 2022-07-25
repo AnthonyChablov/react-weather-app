@@ -10,17 +10,18 @@ const Content2 = ({city, country,weather, imageId, date}) => {
         
         <div className="secondary__image">
             <Image imageId={imageId}/>
-            
         </div>
         <div className="secondary__text">
-            <p>{
-                weather
-                .toLowerCase()
-                .split(' ')
-                .map(word => word
-                    .charAt(0).toUpperCase() + 
-                    word.slice(1)).join(' ')
-            }</p>
+            <p>
+                {
+                    weather
+                    .toLowerCase()
+                    .split(' ')
+                    .map(word => word
+                        .charAt(0).toUpperCase() + 
+                        word.slice(1)).join(' ')
+                }
+            </p>
             <div className="secondary__flex">
                 <p className="secondary__date">Last updated: {date}</p>
                 <a href="">
