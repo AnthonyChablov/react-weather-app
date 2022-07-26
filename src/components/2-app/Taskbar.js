@@ -47,9 +47,6 @@ const Taskbar = ({temp,currentDayMonthYear , daysOfWeek, sevenDayWeather, sevenD
         Math.round((sevenDayWeather[7].temp.min +sevenDayWeather[7].temp.max)/2)-273)}
         sevenDayImgId={sevenDayImgId[7]}
         />
-
-
-
     </footer>
   )
 }

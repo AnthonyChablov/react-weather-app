@@ -6,6 +6,7 @@
 @import 'modal.scss';
 @import 'form.scss';
 @import 'homepage.scss';
+@import 'breakpoints.scss';
 
 .display{
     background-image: url("../assets/images/spots_background_light_blur_68629_1920x1080.jpg");
@@ -13,7 +14,6 @@
     min-height: 100vh;
     font-family: $roboto;
 }
-
 .wrapper{
     display: flex;
     flex-direction: row;
@@ -21,17 +21,15 @@
 }
 .primary__info{
     width: 30%;
-
 }
 .primary__header{
-    padding: 40px 0px 0px 0px;   
+    padding: 2.3em 0 0 0;   
     text-align: center;
     .header__h1{
-        padding: 20px 0 0 0 ;
-        font-size: 30px;
+        padding:  0.95em 0 0 0 ;
+        font-size: 1.875rem;
     }
 }
-
 .primary__content{
     display: flex;
     flex-direction: column;
@@ -41,7 +39,6 @@
     justify-content: flex-start;
     
     align-content: center;
-    
 }
 .primary__pressure{
     display: flex;
@@ -55,32 +52,30 @@
     width: 100%;
     justify-content: center;
 }
-
 .primary__windspeed{
     display: flex;
     align-items: flex-end;
     width: 100%;
     justify-content: center;
 }
-
 .secondary__info{
-    padding-top: 40px;
+    padding-top: 2.5em;
     text-align: center;
     width: 30%;
 }
 .secondary__header{
-    font-size: 30px;
-    padding: 0 0 4px 0;
-    text-shadow: 1px 1px 80px #c67683;
+    font-size: 1.875rem;
+    padding: 0 0 0.25em 0;
+    text-shadow: 0.0625em 0.0625em 5em #c67683;
 }
-
 .secondary__text{
-    padding: 0px 0 25px 0;
+    padding: 0px 0 1.5625em
+    0;
 }
 .secondary__date{
     margin: 0;
-    font-size: 13px;
-    padding-right: 10px;
+    font-size: 0.813rem;
+    padding-right: 0.625em;
 }
 .secondary__flex{
     display: flex;
@@ -88,21 +83,19 @@
     justify-content: center;
 }
 .secondary__image{
-    padding-top: 10px;
+    padding-top: 0.625em;
     
 }
 .location__img{
-    padding-top: 25px;
+    padding-top: 1.5625em;
 }
-
 .secondary__img:hover{
     cursor: pointer;
     filter: brightness(60%);
 }
-
 .tertiary__info{
     
-    padding-top: 40px;
+    padding-top: 2.5em;
     text-align: center;
     width: 30%;
 
@@ -111,7 +104,7 @@
         justify-content: center;
     }
     .tertiary__header{
-        font-size: 35px;
+        font-size: 2.188rem;
     }
 }
 .tertiary__img{
@@ -122,21 +115,20 @@
 }
 
 .min-temp-insert{
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .taskbar{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding-top: 35px;
+    padding-top: 2.1875em;
 }
 .taskbar__temperature{
-    font-size: 40px;
+    font-size: 2.5rem;
 }
 .taskbar__info{
-    
-    padding: 0px 20px 0 0 ;
+    padding: 0 1.25em 0 0 ;
 }
 
 .taskbar__date{
@@ -146,12 +138,12 @@
 /* button form */
 .btn__change{
     display: inline-flex;
-    padding: 10px 15px;
+    padding: 0.625em 0.9375em;
     text-decoration: none;
     background-color: $white;
     color: $dark-blue;
     border-radius: 100px;
-    box-shadow: 3px 4px 75px #c67683;
+    box-shadow: 0.1875em 0.25em 4.6875em #c67683;
     cursor: pointer;
 }
 
@@ -159,5 +151,63 @@
     filter: brightness(86%);
 }
 
+// mobile
+@media (max-width:43.75em){ // anything 700px or less
+    
+}
+// tablets
+@media (max-width: 62em){// anything 992px or less  
+    // content 1       
+    .primary__header{
+        padding: 2.5em 0 0 0;   
+        text-align: center;
+        .header__h1{
+            padding:  1.25em 0 0 0 ;
+            font-size: 1.3rem;
+        }
+    }
+    .primary__info{
+        font-size: 0.87rem;
+    }
+    .primary__humidity{
+        padding-top: 0.25rem;
+    }
+    .primary__windspeed{
+        padding-top: 0.25rem;
+    }
+    .icons{
+        width: 2.313rem; // 37px
+    }
+
+    // content 2
+    .secondary__header{
+        font-size: 1.8rem;
+        padding-top: 0.057em; //2px
+        padding-bottom: 15px;
+    }
+    .secondary__image{
+        
+        width: auto;
+        
+    }
 
 
+    // content 3
+    .tertiary__info{
+        .tertiary__header{
+            font-size: 1.9rem;
+        }
+    
+    }
+    
+    
+
+
+}
+
+// small screens 
+@media (max-width: 87em) // anything 1392 px or less
+{
+    
+}
+// create another for large screen sizes

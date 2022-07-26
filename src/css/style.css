@@ -165,10 +165,10 @@ h1, h2, h3 {
 }
 
 .modal__content {
-  width: 500px;
+  width: 31.25em;
   margin: 0 auto;
   background-color: #fff;
-  border: 1.5px solid #474090;
+  border: 0.09375em solid #474090;
   border-radius: 10px;
   transform: translateY(-100px);
   transition: opacity;
@@ -176,11 +176,11 @@ h1, h2, h3 {
 }
 
 .modal__alignment {
-  padding: 10px 24px;
+  padding: 0.625em 1.5em;
 }
 
 .modal__header {
-  padding: 10px 0;
+  padding: 0.625em 0;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -198,7 +198,7 @@ h1, h2, h3 {
   align-items: flex-start;
   cursor: pointer;
   background-color: #EEEEEE;
-  padding: 5px;
+  padding: 0.3125em;
   border-radius: 100px;
 }
 .modal__exit-icon .exit-icon {
@@ -210,14 +210,14 @@ h1, h2, h3 {
 }
 
 .modal__body {
-  padding: 0px 0;
+  padding: 0 0;
 }
 
 /* modal country  */
 .modal__footer {
   background-color: #EEEEEE;
-  padding: 20px 24px;
-  border-radius: 0px 0px 10px 10px;
+  padding: 1.25em 1.5em;
+  border-radius: 0 0 0.625em 0.625em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -227,7 +227,7 @@ h1, h2, h3 {
   display: inline-flex;
   color: black;
   text-decoration: none;
-  padding: 10px 15px;
+  padding: 0.625em 0.9375em;
   border-radius: 100px;
 }
 
@@ -236,7 +236,7 @@ h1, h2, h3 {
   align-items: center;
 }
 .modal__btn--clear .btn--clear__icon {
-  margin-right: 5px;
+  margin-right: 0.3125em;
 }
 
 .modal__btn--clear:hover {
@@ -246,7 +246,7 @@ h1, h2, h3 {
 }
 
 .modal__btn--cancel {
-  margin-right: 6px;
+  margin-right: 0.375em;
   background-color: #EEEEEE;
   color: #474090;
 }
@@ -258,10 +258,10 @@ h1, h2, h3 {
 .modal__btn--submit {
   color: #fff;
   background-color: #474090;
-  box-shadow: 0.5px 0.5px 4px #474090;
+  box-shadow: 0.03125em 0.03125em 0.25em #474090;
   border: none;
-  padding: 10px 15px;
-  font-size: 16px;
+  padding: 0.625em 0.9375em;
+  font-size: 1rem;
   font-family: "Roboto", sans-serif;
   cursor: pointer;
 }
@@ -273,7 +273,7 @@ h1, h2, h3 {
 .modal__btn2 {
   color: #fff;
   background-color: #474090;
-  box-shadow: 0.5px 0.5px 4px #474090;
+  box-shadow: 0.03125em 0.03125em 0.25em #474090;
   border: none;
 }
 
@@ -285,20 +285,20 @@ h1, h2, h3 {
 /*  modal form styling */
 .form__group {
   position: relative;
-  padding: 15px 0 0;
+  padding: 0.9375em 0 0;
   margin: 0;
-  padding-top: 20px;
+  padding-top: 1.25em;
   width: 100%;
 }
 
 .form__field {
   width: 100%;
   border: 0;
-  border-bottom: 2px solid #9b9b9b;
+  border-bottom: 0.125em solid #9b9b9b;
   outline: 0;
   font-size: 1.3rem;
   color: #474090;
-  padding: 7px 0;
+  padding: 0.4375em 0;
   background: transparent;
   transition: border-color 0.2s;
 }
@@ -314,17 +314,17 @@ h1, h2, h3 {
 .form__field:-moz-placeholder-shown ~ .form__label {
   font-size: 1.05rem;
   cursor: text;
-  top: 20px;
+  top: 1.25em;
 }
 .form__field:-ms-input-placeholder ~ .form__label {
   font-size: 1.05rem;
   cursor: text;
-  top: 20px;
+  top: 1.25em;
 }
 .form__field:placeholder-shown ~ .form__label {
   font-size: 1.05rem;
   cursor: text;
-  top: 20px;
+  top: 1.25em;
 }
 
 .form__label {
@@ -337,9 +337,9 @@ h1, h2, h3 {
 }
 
 .form__field:focus {
-  padding-bottom: 6px;
+  padding-bottom: 0.375em;
   font-weight: 700;
-  border-width: 3px;
+  border-width: 0.1875em;
   -o-border-image: linear-gradient(to right, #474090, #c17d88);
      border-image: linear-gradient(to right, #474090, #c17d88);
   border-image-slice: 1;
@@ -355,12 +355,12 @@ h1, h2, h3 {
 }
 
 .modal__city {
-  margin-top: 5px;
+  margin-top: 0.3125em;
 }
 
 .modal__country {
-  margin-top: 18px;
-  margin-bottom: 20px;
+  margin-top: 1.125em;
+  margin-bottom: 1.25em;
 }
 
 /* reset input */
@@ -386,12 +386,12 @@ h1, h2, h3 {
 }
 
 .primary__header {
-  padding: 40px 0px 0px 0px;
+  padding: 2.3em 0 0 0;
   text-align: center;
 }
 .primary__header .header__h1 {
-  padding: 20px 0 0 0;
-  font-size: 30px;
+  padding: 0.95em 0 0 0;
+  font-size: 1.875rem;
 }
 
 .primary__content {
@@ -425,25 +425,25 @@ h1, h2, h3 {
 }
 
 .secondary__info {
-  padding-top: 40px;
+  padding-top: 2.5em;
   text-align: center;
   width: 30%;
 }
 
 .secondary__header {
-  font-size: 30px;
-  padding: 0 0 4px 0;
-  text-shadow: 1px 1px 80px #c67683;
+  font-size: 1.875rem;
+  padding: 0 0 0.25em 0;
+  text-shadow: 0.0625em 0.0625em 5em #c67683;
 }
 
 .secondary__text {
-  padding: 0px 0 25px 0;
+  padding: 0px 0 1.5625em 0;
 }
 
 .secondary__date {
   margin: 0;
-  font-size: 13px;
-  padding-right: 10px;
+  font-size: 0.813rem;
+  padding-right: 0.625em;
 }
 
 .secondary__flex {
@@ -453,11 +453,11 @@ h1, h2, h3 {
 }
 
 .secondary__image {
-  padding-top: 10px;
+  padding-top: 0.625em;
 }
 
 .location__img {
-  padding-top: 25px;
+  padding-top: 1.5625em;
 }
 
 .secondary__img:hover {
@@ -466,7 +466,7 @@ h1, h2, h3 {
 }
 
 .tertiary__info {
-  padding-top: 40px;
+  padding-top: 2.5em;
   text-align: center;
   width: 30%;
 }
@@ -475,7 +475,7 @@ h1, h2, h3 {
   justify-content: center;
 }
 .tertiary__info .tertiary__header {
-  font-size: 35px;
+  font-size: 2.188rem;
 }
 
 .tertiary__img {
@@ -486,22 +486,22 @@ h1, h2, h3 {
 }
 
 .min-temp-insert {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .taskbar {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding-top: 35px;
+  padding-top: 2.1875em;
 }
 
 .taskbar__temperature {
-  font-size: 40px;
+  font-size: 2.5rem;
 }
 
 .taskbar__info {
-  padding: 0px 20px 0 0;
+  padding: 0 1.25em 0 0;
 }
 
 .taskbar__date {
@@ -511,15 +511,49 @@ h1, h2, h3 {
 /* button form */
 .btn__change {
   display: inline-flex;
-  padding: 10px 15px;
+  padding: 0.625em 0.9375em;
   text-decoration: none;
   background-color: #fff;
   color: #474090;
   border-radius: 100px;
-  box-shadow: 3px 4px 75px #c67683;
+  box-shadow: 0.1875em 0.25em 4.6875em #c67683;
   cursor: pointer;
 }
 
 .btn__change:hover {
   filter: brightness(86%);
+}
+
+@media (max-width: 62em) {
+  .primary__header {
+    padding: 2.5em 0 0 0;
+    text-align: center;
+  }
+  .primary__header .header__h1 {
+    padding: 1.25em 0 0 0;
+    font-size: 1.3rem;
+  }
+  .primary__info {
+    font-size: 0.87rem;
+  }
+  .primary__humidity {
+    padding-top: 0.25rem;
+  }
+  .primary__windspeed {
+    padding-top: 0.25rem;
+  }
+  .icons {
+    width: 2.313rem;
+  }
+  .secondary__header {
+    font-size: 1.8rem;
+    padding-top: 0.057em;
+    padding-bottom: 15px;
+  }
+  .secondary__image {
+    width: auto;
+  }
+  .tertiary__info .tertiary__header {
+    font-size: 1.9rem;
+  }
 }/*# sourceMappingURL=style.css.map */

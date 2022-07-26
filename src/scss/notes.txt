@@ -1,0 +1,36 @@
+
+// Media queries
+// As best practice for media queries start with mobile widths and move ur way up 
+
+// min width used for mobile first --- best to use this
+// ex. min-width: 500px --- anything more than 500px wide
+
+// max width used for desktop first
+// ex. max-width:500px --- anything less than 500px wide
+
+// best to assume all mobile devices are below 700px
+// best to assume all tablets are 700px to 992 px
+// best to assume small screens are 992 px to 1392 px
+// best to assume large/Xl screens are greater than 1392 px
+
+// best to keep media queries simple within a set range
+// stick to one set
+// so that you are not overcomplicating things 
+
+// em relative to the font-size of the element ( 2em means 2 times the size of the current font )
+
+// rem relative to the font-size of the root element 
+
+// IMPORTANT
+
+// USE EM for MEDIA QUERIES
+// why use em with media queries breakpoints
+// for accessibility purposes
+// units like em and rem are relative to other factors on the pages --- em is relative to the base font size --- will give user control --- stop using pixels as pixels are absolute
+
+// USE REM for Font Sizes. 
+--- Relative to font-size of the ROOT ELEMENT
+
+// USE EM FOR PADDING and stuff like that.
+--- Relative to the font-size of CONTAINER
+

@@ -1,7 +1,17 @@
 import {FaTimes} from 'react-icons/fa'
 import {BsTrash} from 'react-icons/bs'
 
-const Modal = ({onSubmit, onChangeCity ,onChangeCountry, formInputCity, formInputCountry, setFormInputCity, setFormInputCountry, clearForm}) => {
+const Modal = ({
+    onSubmit, 
+    onChangeCity ,
+    onChangeCountry, 
+    formInputCity, 
+    formInputCountry, 
+    setFormInputCity, 
+    setFormInputCountry, 
+    clearForm,
+    
+}) => {
   return (
     <div className="modal" id='modal__animation'>
         <div className="modal__content">
@@ -55,7 +65,8 @@ const Modal = ({onSubmit, onChangeCity ,onChangeCountry, formInputCity, formInpu
                 <div className="modal__footer">
                         
                         <a 
-                            href="#modal__animation"     className="modal__btn modal__btn--clear" 
+                            href={'#modal__animation'}     
+                            className="modal__btn modal__btn--clear" 
                             onClick={()=>clearForm()}>
                                 <BsTrash className='btn--clear__icon'/>Clear
                         </a>
@@ -63,7 +74,7 @@ const Modal = ({onSubmit, onChangeCity ,onChangeCountry, formInputCity, formInpu
                         <div>
                             <a href="#" className="modal__btn modal__btn--cancel" >Cancel</a>
 
-                            <input className="modal__btn modal__btn--submit" type="submit" value='Submit'/>
+                            <input className="modal__btn modal__btn--submit" type="submit" value='Submit' />
 
                             {/* <input className="modal__btn modal__btn2" type="submit" value="Submit"/> */}
                              {/*  <a href="#" className="modal__btn modal__btn2" >Submit</a>  */}

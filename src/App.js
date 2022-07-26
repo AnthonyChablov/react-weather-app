@@ -35,7 +35,7 @@ function App() {
   // form input value
   const [formInputCity , setFormInputCity] = useState('');
   const [formInputCountry, setFormInputCountry] = useState('');
-
+  
   useEffect(()=>{ 
     setInterval(()=>{
       setTime((getTime()));
@@ -109,13 +109,13 @@ function App() {
     'snow':snowImg,
     'mist':rainImg,
  */
-    
     'Clouds': cloudImg,
     'Rain':rainImg,
     'Snow':snowImg,
     'Clear':sunImg,
     'Thunderstorm':rainImg,
     'Mist':rainImg,
+    'Haze':cloudImg,
   }
   let weatherOutputSm={
     'Clouds': cloudImgSm,
@@ -124,6 +124,7 @@ function App() {
     'Clear':sunImgSm,
     'Thunderstorm':rainImgSm,
     'Mist':rainImgSm,
+    'Haze':cloudImgSm,
   }
 
   const getImageWeather = () => {
@@ -155,7 +156,6 @@ function App() {
     let arr2 = orderDays.filter((day, i)=> i < numberDay.getDay());
     return arr1.concat(arr2);
   }
-
   //form state changes and submit to make new fetch request
   const onChangeHandler = (e)=>{
     setFormInputCity(e.target.value);
@@ -169,8 +169,10 @@ function App() {
     console.log(`Form Submitted ${city}`);
   }
   const onClearForm = (e) =>{
-    setFormInputCity('');
-    setFormInputCountry('');
+    if(formInputCity!=='' || formInputCountry !==''){
+      setFormInputCity('');
+      setFormInputCountry('');
+    }
   }
 
   // Rendering
@@ -224,6 +226,8 @@ function App() {
                 setFormInputCountry= {setFormInputCountry}
                 setFormInputCity={setFormInputCity}
                 clearForm ={onClearForm}
+
+                
               />
             </main>
           ):( // Loading Page

@@ -94,10 +94,10 @@ h1, h2, h3 {
 }
 
 .modal__content {
-  width: 500px;
+  width: 31.25em;
   margin: 0 auto;
   background-color: #fff;
-  border: 1.5px solid #474090;
+  border: 0.09375em solid #474090;
   border-radius: 10px;
   transform: translateY(-100px);
   transition: opacity;
@@ -105,11 +105,11 @@ h1, h2, h3 {
 }
 
 .modal__alignment {
-  padding: 10px 24px;
+  padding: 0.625em 1.5em;
 }
 
 .modal__header {
-  padding: 10px 0;
+  padding: 0.625em 0;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -127,7 +127,7 @@ h1, h2, h3 {
   align-items: flex-start;
   cursor: pointer;
   background-color: #EEEEEE;
-  padding: 5px;
+  padding: 0.3125em;
   border-radius: 100px;
 }
 .modal__exit-icon .exit-icon {
@@ -139,14 +139,14 @@ h1, h2, h3 {
 }
 
 .modal__body {
-  padding: 0px 0;
+  padding: 0 0;
 }
 
 /* modal country  */
 .modal__footer {
   background-color: #EEEEEE;
-  padding: 20px 24px;
-  border-radius: 0px 0px 10px 10px;
+  padding: 1.25em 1.5em;
+  border-radius: 0 0 0.625em 0.625em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -156,7 +156,7 @@ h1, h2, h3 {
   display: inline-flex;
   color: black;
   text-decoration: none;
-  padding: 10px 15px;
+  padding: 0.625em 0.9375em;
   border-radius: 100px;
 }
 
@@ -165,7 +165,7 @@ h1, h2, h3 {
   align-items: center;
 }
 .modal__btn--clear .btn--clear__icon {
-  margin-right: 5px;
+  margin-right: 0.3125em;
 }
 
 .modal__btn--clear:hover {
@@ -175,7 +175,7 @@ h1, h2, h3 {
 }
 
 .modal__btn--cancel {
-  margin-right: 6px;
+  margin-right: 0.375em;
   background-color: #EEEEEE;
   color: #474090;
 }
@@ -187,10 +187,10 @@ h1, h2, h3 {
 .modal__btn--submit {
   color: #fff;
   background-color: #474090;
-  box-shadow: 0.5px 0.5px 4px #474090;
+  box-shadow: 0.03125em 0.03125em 0.25em #474090;
   border: none;
-  padding: 10px 15px;
-  font-size: 16px;
+  padding: 0.625em 0.9375em;
+  font-size: 1rem;
   font-family: "Roboto", sans-serif;
   cursor: pointer;
 }
@@ -202,7 +202,7 @@ h1, h2, h3 {
 .modal__btn2 {
   color: #fff;
   background-color: #474090;
-  box-shadow: 0.5px 0.5px 4px #474090;
+  box-shadow: 0.03125em 0.03125em 0.25em #474090;
   border: none;
 }
 
