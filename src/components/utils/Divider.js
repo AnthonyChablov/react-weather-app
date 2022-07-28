@@ -1,7 +1,7 @@
 
 const Divider = () => {
   return (
-    <div className='divider'>
+    <div className='divider add-animation-divider'>
         <div className="divider__border">
             
         </div>

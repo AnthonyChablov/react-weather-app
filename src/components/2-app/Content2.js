@@ -3,10 +3,10 @@ import Image from "./Image"
 
 const Content2 = ({city, country,weather, imageId, date}) => {
   return (
-    <section className="secondary__info">
+    <section className="secondary__info add-animation">
         <h1 className="secondary__header">{city}, {country}</h1>
         
-        <Button className="secondary__btn" action='Change Location' />
+        <Button className="secondary__btn " action='Change Location' />
         
         <div className="secondary__image">
             <Image imageId={imageId}/>
@@ -22,10 +22,10 @@ const Content2 = ({city, country,weather, imageId, date}) => {
                         word.slice(1)).join(' ')
                 }
             </p>
-            <div className="secondary__flex">
+            <div className="secondary__flex ">
                 <p className="secondary__date">Last updated: {date}</p>
                 <a href="">
-                <div className="secondary__img">
+                <div className="secondary__img ">
                     <img src={require("../../assets/images/Refresh_15px.png")} alt="Refresh Icon"/>
                 </div>
                 </a>

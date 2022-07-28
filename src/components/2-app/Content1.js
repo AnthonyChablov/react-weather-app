@@ -1,6 +1,6 @@
 const Content = ({pressure, humidity, speed}) => {
   return (
-    <section className='primary__info '>
+    <section className='primary__info add-animation'>
         <div className="primary__header">
           <div className="header__img formatting">
             <img className='forecast-img' src={require("../../assets/images/Marker_64px.png")} alt="Forecast Icon"/>
@@ -20,9 +20,9 @@ const Content = ({pressure, humidity, speed}) => {
             <div className="primary__humidity-icon icons">
               <img src={require("../../assets/images/Humidity_44px.png")} alt="Humidity"/>
             </div>
-            <p>Humidity: {humidity}%</p>
+            <p>Humidity: <span className="">{humidity}%</span></p>
           </div>
-          <div className="primary__windspeed row">
+          <div className="primary__windspeed row ">
               <div className=" primary__windspeed-icon icons">
                   <img src={require("../../assets/images/Wind Speed 98-102_44px.png")} alt="Wind Speed Icon"/>
               </div>

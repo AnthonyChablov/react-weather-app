@@ -7,6 +7,10 @@
 @import 'form.scss';
 @import 'homepage.scss';
 @import 'breakpoints.scss';
+@import 'loading-spinner';
+
+@import 'animate.css';
+
 
 .display{
     background-image: url("../assets/images/spots_background_light_blur_68629_1920x1080.jpg");
@@ -57,6 +61,8 @@
     align-items: flex-end;
     width: 100%;
     justify-content: center;
+
+    
 }
 .secondary__info{
     padding-top: 2.5em;
@@ -83,6 +89,7 @@
     justify-content: center;
 }
 .secondary__image{
+    
     padding-top: 0.625em;
     
 }
@@ -94,7 +101,6 @@
     filter: brightness(60%);
 }
 .tertiary__info{
-    
     padding-top: 2.5em;
     text-align: center;
     width: 30%;
@@ -145,12 +151,64 @@
     border-radius: 100px;
     box-shadow: 0.1875em 0.25em 4.6875em #c67683;
     cursor: pointer;
+
+    //animate css library utility properties
+    animation: pulse;
+    animation-duration: 2s;
+
+
 }
 
 .btn__change:hover{
+
+    animation: pulse;
+    animation-duration: 1s;
     filter: brightness(86%);
 }
 
+// animation keyframes //
+
+.add-animation{
+    animation: moveInTop 0.5s ease-in;
+}
+.add-animation-2{
+   
+    animation: moveInTop 0.33s ease-in;
+}
+.add-animation-divider{   
+    animation: moveInTopDivider 0.23s ease-in;
+}
+
+
+@keyframes moveInTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-17px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@keyframes moveInTopDivider {
+    0% {
+        opacity: 0;
+        transform: translateY(-300px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes color-change {
+    80% { filter:brightness(123%); }    
+}
+
+
+/* Media Queries */
 // mobile
 @media (max-width:43.75em){ // anything 700px or less
     

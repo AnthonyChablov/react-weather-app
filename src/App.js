@@ -18,6 +18,7 @@ import sunImgSm from   './assets/images/weatherstatus/sm/Sun_64px_3.png';
 import cloudImgSm from "./assets/images/weatherstatus/sm/Cloud_64px.png";
 import rainImgSm from  "./assets/images/weatherstatus/sm/Rain_64px_1.png";
 import snowImgSm from  "./assets/images/weatherstatus/sm/Snow_64px.png";
+import Spinner from './components/utils/Spinner';
 
 function App() {
   // HOOKS
@@ -43,18 +44,18 @@ function App() {
   });
 
   useEffect(()=>{
-    console.log('City changed');
+    console.log('City changed, getting weather');
     getWeather();
   },[city])
   
-
   useEffect(()=>{
     getSevenDayWeather();
-  },[city]);
+  },[weather]);
 
   useEffect(()=>{
     setOrderDays(reOrderDays());
   }, []);
+
   /* Functions */
   // 1 Day Weather
   const fetchWeather = async()=>{
@@ -175,9 +176,22 @@ function App() {
     }
   }
 
+
+  // loading timer 
+  useEffect (()=>{
+    const timer = setTimeout(()=>{
+      console.log('delayed for 5 seconds');
+      setLoading(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  },[]);
+  
+
   // Rendering
   if (loading){
-    return (<main className='display'>Loading...</main>);
+    return (<main className='display'>
+      <Spinner/>
+    </main>);
   }
   return (
     <Router>
