@@ -1,8 +1,9 @@
 {
+  "homepage": "https://AnthonyChablov.github.io/React-Weather-App",
   "name": "react-weather-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AnthonyChablov.github.io/React-Weather-App",
+  
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
