@@ -670,6 +670,10 @@ h1, h2, h3 {
   filter: brightness(86%);
 }
 
+.error {
+  display: none;
+}
+
 .add-animation {
   -webkit-animation: moveInTop 0.5s ease-in;
           animation: moveInTop 0.5s ease-in;
@@ -790,7 +794,36 @@ h1, h2, h3 {
     filter: brightness(123%);
   }
 }
-/* Media Queries */
+/* Media Queries WORK IN PROGRESS */
+@media (max-width: 55.375em) { /* anything 885px or less*/
+  .taskbar {
+    display: none;
+  }
+  .wrapper {
+    display: none;
+  }
+  .error {
+    display: block;
+  }
+  .error .error__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20vh;
+    text-align: center;
+  }
+  .error .error__wrapper .error__h1 {
+    font-size: 2.1875em;
+  }
+  .error .error__wrapper .error__alignment {
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+  }
+  .error .error__wrapper .error__alignment .error__paragraph {
+    margin-right: 0.311em;
+  }
+}
 @media (max-width: 62em) {
   .primary__header {
     padding: 2.5em 0 0 0;

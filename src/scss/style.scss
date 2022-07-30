@@ -28,6 +28,7 @@
 .primary__header{
     padding: 2.3em 0 0 0;   
     text-align: center;
+    
     .header__h1{
         padding:  0.95em 0 0 0 ;
         font-size: 1.875rem;
@@ -96,6 +97,7 @@
     filter: brightness(60%);
 }
 .tertiary__info{
+
     padding-top: 2.5em;
     text-align: center;
     width: 30%;
@@ -151,11 +153,16 @@
     animation-duration: 3.4s;
     animation-iteration-count: infinite;
 }
-
-.btn__change:hover{
+.btn__change:hover {
     animation: pulse;
     animation-duration: 1s;
     filter: brightness(86%);
+}
+
+// display error message upon screen size below 885 px
+.error {
+    display: none;
+    
 }
 
 // animation keyframes //
@@ -231,11 +238,46 @@
 }
 
 
-/* Media Queries */
+/* Media Queries WORK IN PROGRESS */
 // mobile
-@media (max-width:43.75em){ // anything 700px or less
-    
+//@media (max-width:43.75em){ /* anything 700px or less*/}
+// work in progress--- anything 830 px or less 
+
+// to ensure desktop layout does not break display blank page asking user to resize 
+@media (max-width: 55.375em){ /* anything 885px or less*/
+    .taskbar{
+        display: none;
+    }
+    .wrapper{
+        display: none;
+    }
+    .error{
+        display: block;
+
+        .error__wrapper{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20vh;
+            text-align: center;
+
+            .error__h1{
+                font-size: 2.1875em;
+            }
+            
+            .error__alignment{
+                display: flex;
+                align-items: center;
+                align-content: space-between;
+
+                .error__paragraph{
+                    margin-right: 0.311em;
+                }
+            }
+        }
+    }
 }
+
 // tablets
 @media (max-width: 62em){// anything 992px or less  
     // content 1       
@@ -276,9 +318,6 @@
             font-size: 1.9rem;
         }
     }
-    
-    
-
 
 }
 

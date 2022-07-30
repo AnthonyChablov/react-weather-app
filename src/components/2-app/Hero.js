@@ -4,6 +4,7 @@ import Content3 from "./Content3"
 
 import Divider from "../utils/Divider"
 import Taskbar from "./Taskbar"
+import ErrorMessage from './ErrorMessage';
 
 const Hero = ({
   // content1 props
@@ -20,6 +21,9 @@ const Hero = ({
   return (
     <section className="display">
         <div className="container">
+            <ErrorMessage
+                  // if below xxx pixels
+            />
           <div className="wrapper">
             
             <Content1 

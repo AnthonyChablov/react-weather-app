@@ -39,7 +39,7 @@ function App() {
   const [formInputCity , setFormInputCity] = useState('');
   const [formInputCountry, setFormInputCountry] = useState('');
   //err
-  const [hasError,setError] = useState(false)
+  const [hasError,setError] = useState(false);
   
   useEffect(()=>{ 
     setInterval(()=>{
@@ -244,8 +244,6 @@ function App() {
                 setFormInputCountry= {setFormInputCountry}
                 setFormInputCity={setFormInputCity}
                 clearForm ={onClearForm}
-
-                
               />
             </main>
           ):( // Loading Page
