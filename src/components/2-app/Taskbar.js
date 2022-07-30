@@ -4,7 +4,6 @@ import TaskbarCalendar from "./TaskbarCalendar"
 const Taskbar = ({temp,currentDayMonthYear , daysOfWeek, sevenDayWeather, sevenDayImgId}) => {
   return (
     <footer className="taskbar add-animation">    
-
       <TaskbarMain temp={temp} time={currentDayMonthYear}/>
       <Divider2 className='add-animation'/>
 

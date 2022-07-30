@@ -34,7 +34,7 @@ seperator between content*/
 }
 
 .divider__border-2 {
-  padding-bottom: 175px;
+  padding-bottom: 150px;
   border-left: 1.5px solid #fff;
 }
 
@@ -52,6 +52,13 @@ seperator between content*/
 /* icon styling */
 .icons {
   margin-right: 3.5%;
+}
+
+.loading {
+  padding: 6.25em 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 *, *::before, *::after {
@@ -104,7 +111,7 @@ seperator between content*/
 }
 
 .divider__border-2 {
-  padding-bottom: 175px;
+  padding-bottom: 150px;
   border-left: 1.5px solid #fff;
 }
 
@@ -122,6 +129,13 @@ seperator between content*/
 /* icon styling */
 .icons {
   margin-right: 3.5%;
+}
+
+.loading {
+  padding: 6.25em 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 *, *::before, *::after {
@@ -642,8 +656,10 @@ h1, h2, h3 {
   cursor: pointer;
   -webkit-animation: pulse;
           animation: pulse;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+  -webkit-animation-duration: 3.4s;
+          animation-duration: 3.4s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 .btn__change:hover {
@@ -669,6 +685,61 @@ h1, h2, h3 {
           animation: moveInTopDivider 0.23s ease-in;
 }
 
+.add-animation-pin-drop {
+  -webkit-animation-name: pinDrop;
+          animation-name: pinDrop;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes pinDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pinDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/*
+@keyframes pulsating{
+    0% {
+        transform: scale(0.1, 0.1);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1.2,1.2);
+        opacity: 0;
+    }
+}*/
 @-webkit-keyframes moveInTop {
   0% {
     opacity: 0;
@@ -679,7 +750,6 @@ h1, h2, h3 {
     transform: translateY(0px);
   }
 }
-
 @keyframes moveInTop {
   0% {
     opacity: 0;

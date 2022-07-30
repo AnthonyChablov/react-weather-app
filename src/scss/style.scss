@@ -8,7 +8,6 @@
 @import 'homepage.scss';
 @import 'breakpoints.scss';
 @import 'loading-spinner';
-
 @import 'animate.css';
 
 
@@ -61,8 +60,6 @@
     align-items: flex-end;
     width: 100%;
     justify-content: center;
-
-    
 }
 .secondary__info{
     padding-top: 2.5em;
@@ -89,9 +86,7 @@
     justify-content: center;
 }
 .secondary__image{
-    
     padding-top: 0.625em;
-    
 }
 .location__img{
     padding-top: 1.5625em;
@@ -136,7 +131,6 @@
 .taskbar__info{
     padding: 0 1.25em 0 0 ;
 }
-
 .taskbar__date{
     text-align: center;
 }
@@ -154,49 +148,78 @@
 
     //animate css library utility properties
     animation: pulse;
-    animation-duration: 2s;
-
-
+    animation-duration: 3.4s;
+    animation-iteration-count: infinite;
 }
 
 .btn__change:hover{
-
     animation: pulse;
     animation-duration: 1s;
     filter: brightness(86%);
 }
 
 // animation keyframes //
-
 .add-animation{
     animation: moveInTop 0.5s ease-in;
 }
 .add-animation-2{
-   
     animation: moveInTop 0.33s ease-in;
 }
 .add-animation-divider{   
     animation: moveInTopDivider 0.23s ease-in;
 }
+.add-animation-pin-drop {
+    animation-name: pinDrop;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
 
+@keyframes pinDrop{
+    0% {
+        opacity: 0;
+        transform: translateY(-2000px);
+    }
+    60%{
+        opacity: 1;
+        transform: translateY(30px);
+    }
+    80%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0) ;
+    }
+}
+/*
+@keyframes pulsating{
+    0% {
+        transform: scale(0.1, 0.1);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1.2,1.2);
+        opacity: 0;
+    }
+}*/
 
 @keyframes moveInTop {
     0% {
         opacity: 0;
         transform: translateY(-17px);
     }
-
     100% {
         opacity: 1;
         transform: translateY(0px);
     }
 }
+
 @keyframes moveInTopDivider {
     0% {
         opacity: 0;
         transform: translateY(-300px);
     }
-
     100% {
         opacity: 1;
         transform: translateY(0px);
@@ -244,18 +267,14 @@
         padding-bottom: 15px;
     }
     .secondary__image{
-        
         width: auto;
-        
     }
-
 
     // content 3
     .tertiary__info{
         .tertiary__header{
             font-size: 1.9rem;
         }
-    
     }
     
     

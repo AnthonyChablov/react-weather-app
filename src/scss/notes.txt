@@ -21,7 +21,7 @@
 
 // rem relative to the font-size of the root element 
 
-// IMPORTANT
+// IMPORTANT ====================================================================================================
 
 // USE EM for MEDIA QUERIES
 // why use em with media queries breakpoints
@@ -34,3 +34,28 @@
 // USE EM FOR PADDING and stuff like that.
 --- Relative to the font-size of CONTAINER
 
+.pulse-effect{
+    border-radius: 50%;
+    height: 14px;
+    width :14px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin :11px 0px 0px -12px;
+    transform :rotateX(55deg);
+    z-index: -2;
+
+    &:after{
+      content: "";
+      border-radius: 50%;
+      height: 40px;
+      width: 40px;
+      position :absolute;
+      margin: -13px 0 0 -13px;
+      animation: pulsate 1s ease-out;
+      animation-iteration-count :infinite;
+      opacity :0.0;
+      box-shadow: 0 0 1px 2px #89849b;
+      animation-delay: 1.1s;
+    }
+}

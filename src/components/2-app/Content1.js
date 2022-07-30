@@ -3,8 +3,11 @@ const Content = ({pressure, humidity, speed}) => {
     <section className='primary__info add-animation'>
         <div className="primary__header">
           <div className="header__img formatting">
-            <img className='forecast-img' src={require("../../assets/images/Marker_64px.png")} alt="Forecast Icon"/>
+            <img className='forecast-img add-animation-pin-drop' src={require("../../assets/images/Marker_64px.png")} alt="Forecast Icon"/>
+            {/* <div className="pulseEffect"></div> */}
+            
           </div>
+          
           <h1 className='header__h1'>Weather Forecast</h1>
         </div>
         

@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Switch } from 'react-router-dom';
 //import seven day weather dummy data
 import {SevenDayWeatherData} from './components/data/SevenDayWeatherData';
 import {SingleDayWeatherData} from './components/data/SingleDayWeatherData';
-
+import {newCountryNames} from './components/data/CountryData'
 // importing large images for dynamic insert
 import sunImg from   './assets/images/weatherstatus/lg/Sun_100px.png';
 import cloudImg from "./assets/images/weatherstatus/lg/Cloud_100px.png";
@@ -31,11 +31,15 @@ function App() {
   const [time, setTime] = useState(`Loading...`);
   // Modal Enter City Name
   const [city, setCity]= useState('Toronto');
+  // modal Enter Country Name
+  const[country , setCountry] = useState('Canada');
   // setting the order of days accoring to day of the week
   const [orderDays, setOrderDays] = useState(['MON', 'TUE','WED','THU','FRI','SAT','SUN']);
   // form input value
   const [formInputCity , setFormInputCity] = useState('');
   const [formInputCountry, setFormInputCountry] = useState('');
+  //err
+  const [hasError,setError] = useState(false)
   
   useEffect(()=>{ 
     setInterval(()=>{
@@ -44,9 +48,9 @@ function App() {
   });
 
   useEffect(()=>{
-    console.log('City changed, getting weather');
+    console.log('City and/or Country changed, getting weather.');
     getWeather();
-  },[city])
+  },[city, country]);
   
   useEffect(()=>{
     getSevenDayWeather();
@@ -56,10 +60,19 @@ function App() {
     setOrderDays(reOrderDays());
   }, []);
 
+  // loading spinner 
+  useEffect (()=>{
+    const timer = setTimeout(()=>{
+      console.log('delayed for 5 seconds');
+      setLoading(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  },[]);
+
   /* Functions */
   // 1 Day Weather
   const fetchWeather = async()=>{
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${'fb0d758eb64076fcb554d7fdd7f7bd8a'}`);
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${newCountryNames[country.toUpperCase()]}&appid=${'fb0d758eb64076fcb554d7fdd7f7bd8a'}`);
     if (!res.ok) {
       throw new Error('Error! Something went wrong!');
     }
@@ -69,7 +82,7 @@ function App() {
   }
   const getWeather = async ()=>{
     setLoading(true);
-    const weatherFromServer = await fetchWeather();
+    const weatherFromServer =  await fetchWeather();
     setWeather(weatherFromServer);
     setLoading(false);
   }
@@ -127,7 +140,6 @@ function App() {
     'Mist':rainImgSm,
     'Haze':cloudImgSm,
   }
-
   const getImageWeather = () => {
     //sevenDayWeather.daily[0].weather[0].main
     return weatherOutput[weather.weather[0].main];
@@ -136,7 +148,7 @@ function App() {
 
   const getSevenDayImageWeather=()=>{
     let weeklyWeather = [];
-    for(let i =0 ; i <= 7; i ++){
+    for(let i = 0 ; i <= 7; i ++){
       weeklyWeather.push(weatherOutputSm[sevenDayWeather.daily[i].weather[0].main])
     }
     return weeklyWeather;
@@ -167,30 +179,22 @@ function App() {
   const onSubmitHandler = (e)=>{
     e.preventDefault();
     setCity(formInputCity);
-    console.log(`Form Submitted ${city}`);
+    setCountry(formInputCountry);
+    console.log(`Form Submitted ${city}, ${country}`);
   }
-  const onClearForm = (e) =>{
+  const onClearForm = () =>{
     if(formInputCity!=='' || formInputCountry !==''){
       setFormInputCity('');
       setFormInputCountry('');
     }
   }
 
-
-  // loading timer 
-  useEffect (()=>{
-    const timer = setTimeout(()=>{
-      console.log('delayed for 5 seconds');
-      setLoading(false);
-    }, 5000);
-    return () => clearTimeout(timer);
-  },[]);
-  
-
   // Rendering
   if (loading){
-    return (<main className='display'>
-      <Spinner/>
+    return (<main className='display loading'>
+      <div className="loading__spinner">
+        <Spinner/>
+      </div>
     </main>);
   }
   return (

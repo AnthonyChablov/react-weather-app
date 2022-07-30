@@ -14,7 +14,7 @@ const Content3 = ({minTemp, maxTemp,time}) => {
             </div> 
         </div>
         
-        <DividerBot className='add-animation'/>
+        <DividerBot />
         
         <p>Max. Temp</p>
         <div className="tertiary__img ">
