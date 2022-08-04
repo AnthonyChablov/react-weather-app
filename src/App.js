@@ -65,7 +65,7 @@ function App() {
   useEffect(()=>{
     let orderedDays = reOrderDays()
     setOrderDays(orderedDays);
-  }, [orderDays]);
+  }, [weather]);
 
   // loading spinner 
   useEffect (()=>{
