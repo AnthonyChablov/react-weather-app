@@ -1,12 +1,13 @@
 import {useState, useEffect} from 'react'
-import Hero from  './components/2-app/Hero';
+import Hero from  './components/application/Hero';
 import Modal from './components/modal/Modal';
-import {BrowserRouter as Router, Switch } from 'react-router-dom';
+
 
 //import seven day weather dummy data
 import {SevenDayWeatherData} from './components/data/SevenDayWeatherData';
 import {SingleDayWeatherData} from './components/data/SingleDayWeatherData';
 import {newCountryNames} from './components/data/CountryData'
+
 // importing large images for dynamic insert
 import sunImg from   './assets/images/weatherstatus/lg/Sun_100px.png';
 import cloudImg from "./assets/images/weatherstatus/lg/Cloud_100px.png";
@@ -18,6 +19,8 @@ import sunImgSm from   './assets/images/weatherstatus/sm/Sun_64px_3.png';
 import cloudImgSm from "./assets/images/weatherstatus/sm/Cloud_64px.png";
 import rainImgSm from  "./assets/images/weatherstatus/sm/Rain_64px_1.png";
 import snowImgSm from  "./assets/images/weatherstatus/sm/Snow_64px.png";
+
+//loading spinner
 import Spinner from './components/utils/Spinner';
 
 function App() {
@@ -38,27 +41,31 @@ function App() {
   // form input value
   const [formInputCity , setFormInputCity] = useState('');
   const [formInputCountry, setFormInputCountry] = useState('');
-  //err
-  const [hasError,setError] = useState(false);
   
   useEffect(()=>{ 
-    setInterval(()=>{
-      setTime((getTime()));
-    }, 1000);
-  });
+    if(time){
+      const interval = setInterval(()=>{
+        setTime((getCurrentTime(weather.timezone)));
+      }, 1000);
+      return () =>{
+        clearInterval(interval);
+      };
+    }
+  }, [time]);
 
   useEffect(()=>{
     console.log('City and/or Country changed, getting weather.');
     getWeather();
-  },[city, country]);
+  }, [city, country]);
   
   useEffect(()=>{
     getSevenDayWeather();
   },[weather]);
 
   useEffect(()=>{
-    setOrderDays(reOrderDays());
-  }, []);
+    let orderedDays = reOrderDays()
+    setOrderDays(orderedDays);
+  }, [orderDays]);
 
   // loading spinner 
   useEffect (()=>{
@@ -67,12 +74,13 @@ function App() {
       setLoading(false);
     }, 5000);
     return () => clearTimeout(timer);
-  },[]);
+  }, []);
 
   /* Functions */
   // 1 Day Weather
   const fetchWeather = async()=>{
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${newCountryNames[country.toUpperCase()]}&appid=${'fb0d758eb64076fcb554d7fdd7f7bd8a'}`);
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${
+      city},${newCountryNames[country.toUpperCase()]}&appid=${'fb0d758eb64076fcb554d7fdd7f7bd8a'}`);
     if (!res.ok) {
       throw new Error('Error! Something went wrong!');
     }
@@ -80,6 +88,7 @@ function App() {
     console.log(data);
     return data;
   }
+  
   const getWeather = async ()=>{
     setLoading(true);
     const weatherFromServer =  await fetchWeather();
@@ -88,7 +97,8 @@ function App() {
   }
   // 7 Day Weather
   const fetchSevenDayWeather = async()=>{
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${weather.coord.lat}&lon=${weather.coord.lon}&appid=${'fb0d758eb64076fcb554d7fdd7f7bd8a'}`);
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${
+      weather.coord.lat}&lon=${weather.coord.lon}&appid=${'fb0d758eb64076fcb554d7fdd7f7bd8a'}`);
     if (!res.ok) {
       throw new Error('Error! Something went wrong!');
     }
@@ -102,27 +112,15 @@ function App() {
     setSevenDayWeather(sevenWeatherFromServer);
     setLoading(false);
   }
-  const getTime =  () => {
+  const getCurrentTime = (offset) => {
     let time = new Date();
-    let newTime = time.toLocaleTimeString();
-    return newTime;
+    let utc = time.getTime() + (time.getTimezoneOffset() * 60000);
+    let newTime = new Date(utc + (3600000 * (offset / 3600)));
+    return newTime.toLocaleTimeString();
   }
 
   // Dynamically Change Weather Image According To Weather
   let weatherOutput={
-    /* 
-    'clear sky': sunImg,
-    'few clouds':cloudImg,
-    "scattered clouds":cloudImg,
-    'broken clouds': cloudImg,
-    'thunderstorm': cloudImg,
-    'shower rain':rainImg,
-    'light rain':rainImg,
-    'moderate rain':rainImg,
-    'rain':rainImg,
-    'snow':snowImg,
-    'mist':rainImg,
- */
     'Clouds': cloudImg,
     'Rain':rainImg,
     'Snow':snowImg,
@@ -131,7 +129,7 @@ function App() {
     'Mist':rainImg,
     'Haze':cloudImg,
   }
-  let weatherOutputSm={
+  let weatherOutputSm = {
     'Clouds': cloudImgSm,
     'Rain':rainImgSm,
     'Snow':snowImgSm,
@@ -141,7 +139,6 @@ function App() {
     'Haze':cloudImgSm,
   }
   const getImageWeather = () => {
-    //sevenDayWeather.daily[0].weather[0].main
     return weatherOutput[weather.weather[0].main];
   }
   let imageId = getImageWeather();
@@ -157,23 +154,30 @@ function App() {
 
   // Get current day month year
   let getMonthDayYear = ()=>{
-    let date = new Date();
+    let time = new Date();
+    let utc = time.getTime() + (time.getTimezoneOffset() * 60000);
+    let date = new Date(utc + (3600000 * (weather.timezone/3600)));
     let newDate = date.toDateString();
     return newDate;
   }
   let currentDayMonthYear = getMonthDayYear();
 
   let reOrderDays = ()=>{
-    let numberDay = new Date();
-    let arr1 = orderDays.filter((day, i)=> i >= numberDay.getDay());
-    let arr2 = orderDays.filter((day, i)=> i < numberDay.getDay());
+    let daysOfWeek = ['MON', 'TUE','WED','THU','FRI','SAT','SUN']
+    let time = new Date();
+    let utc = time.getTime() + (time.getTimezoneOffset() * 60000);
+    let numberDay = new Date(utc + (3600000 * (weather.timezone/3600)));
+    let arr1 = daysOfWeek.filter((day, i)=> i >= numberDay.getDay());
+    let arr2 = daysOfWeek.filter((day, i)=> i < numberDay.getDay());
     return arr1.concat(arr2);
   }
   //form state changes and submit to make new fetch request
   const onChangeHandler = (e)=>{
+    e.preventDefault();
     setFormInputCity(e.target.value);
   }
   const onChangeHandlerCountry=(e)=>{
+    e.preventDefault();
     setFormInputCountry(e.target.value);
   }
   const onSubmitHandler = (e)=>{
@@ -198,9 +202,7 @@ function App() {
     </main>);
   }
   return (
-    <Router>
-        <Switch>
-          { !loading 
+          !loading 
           ? ( 
             <main>
               <Hero 
@@ -248,19 +250,9 @@ function App() {
             </main>
           ):( // Loading Page
             <main>Loading...</main>
-          )}
-        </Switch>
-    </Router>
+          )
   );
 }
 
 export default App;
 
-/* 
-StrictMode renders components twice (on dev but not production) in order to detect any problems with your code and warn you about them (which can be quite useful).
-
-If you have StrictMode enabled in your app but don't remember enabling it, it might be because you used create-react-app or similar to create your app initially, which automatically enables StrictMode by default.
-
-
-the build version should ususally render once 
-*/

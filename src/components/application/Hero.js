@@ -30,7 +30,6 @@ const Hero = ({
               pressure={pressure} 
               humidity={humidity}
               speed={speed}
-
             />
             
             <Divider/>
