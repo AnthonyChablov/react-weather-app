@@ -1,8 +1,7 @@
 # Password Generator App
 
-This project randomly generates a password based upon selected settings of password length and the inclusion of Uppercase, lowercase, number or symbol characters
-This project is a challenge from FrontEndMentor.com.  You can find the challenge landing page [here](https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh
-)
+This project displays the weather of the entered location. Created using React, SCSS and The Open-Weather API 
+
 ## Technologies Used
  
 This application was created using: 
