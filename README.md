@@ -1,4 +1,4 @@
-# Password Generator App
+# React Weather App
 
 This project displays the weather of the entered location. Created using React, SCSS and The Open-Weather API 
 
